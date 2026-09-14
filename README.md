@@ -13,3 +13,5 @@
 - Ingestion of two types of data
     - True Data
     - Noisy Data
+- Retrieval Strategy
+- Reranking 
