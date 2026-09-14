@@ -55,3 +55,9 @@ How the system handles (or should handle) the standard LLM/RAG application risk 
 **Handled:** Not currently addressed.
 
 **Gaps / can be handled:** No PII detection/redaction at ingestion or generation time. No data retention or deletion policy — Qdrant vectors and `processed_data/` JSON persist indefinitely with no TTL or purge path. `DATA/noisy_data` contains third-party papers/slides of uncertain licensing that get embedded and can be surfaced verbatim via `sources`. Queries and answers leave the system to third-party providers (Groq, Portkey, Qdrant Cloud, Gemini, Logfire, LangSmith) with no documented data-processing/consent disclosure. Recommended: add a data-classification step at ingestion (PII/copyright flags), a retention policy for Qdrant + `processed_data/`, and a documented list of third-party subprocessors for compliance review — especially important for the `true_data` corpus, which contains internal operational documents.
+
+## Pending Items
+
+- Guardrails not working 
+- Evals to be added for evaluation
+- Decide whether source to be included anywhere or not
