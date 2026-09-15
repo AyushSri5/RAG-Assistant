@@ -111,6 +111,18 @@ instructions:
       - Intel hardware (CPUs, FPGAs, NICs, SRIOV)
       - Enterprise networking (SDN, VLANs, BGP, routing)
       Only answer questions about these topics. Be professional and concise.
+
+rails:
+  dialog:
+    user_messages:
+      # openai/gpt-oss-20b (the guard LLM) doesn't reliably follow the
+      # Colang 1.0 "emit a canonical-form label" completion convention — it
+      # answers the user directly instead, so LLM-based intent generation
+      # never matches a defined `define user ...` example and every rail
+      # silently no-ops. Embeddings-only matching sidesteps the LLM for
+      # canonical-form detection entirely.
+      embeddings_only: True
+      embeddings_only_similarity_threshold: 0.60
 """
 
 # Distinctive substrings from each 'define bot' block above.
